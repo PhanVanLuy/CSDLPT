@@ -72,11 +72,11 @@
             this.get_SubscribesTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.Get_SubscribesTableAdapter();
             this.gcGiangVien = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -283,6 +283,7 @@
             // 
             // pnGiangVienControl
             // 
+            this.pnGiangVienControl.AutoScroll = true;
             this.pnGiangVienControl.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pnGiangVienControl.Controls.Add(this.teDiaChi);
             this.pnGiangVienControl.Controls.Add(this.teMaGV);
@@ -308,7 +309,6 @@
             this.teDiaChi.Location = new System.Drawing.Point(88, 150);
             this.teDiaChi.MenuManager = this.barManager1;
             this.teDiaChi.Name = "teDiaChi";
-            this.teDiaChi.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.teDiaChi.Size = new System.Drawing.Size(278, 20);
             this.teDiaChi.TabIndex = 4;
             this.teDiaChi.TextChanged += new System.EventHandler(this.teDiaChi_TextChanged);
@@ -324,7 +324,6 @@
             this.teMaGV.Location = new System.Drawing.Point(88, 73);
             this.teMaGV.MenuManager = this.barManager1;
             this.teMaGV.Name = "teMaGV";
-            this.teMaGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.teMaGV.Size = new System.Drawing.Size(136, 20);
             this.teMaGV.TabIndex = 1;
             this.teMaGV.EditValueChanged += new System.EventHandler(this.teTen_EditValueChanged);
@@ -337,7 +336,6 @@
             this.teTen.Location = new System.Drawing.Point(265, 111);
             this.teTen.MenuManager = this.barManager1;
             this.teTen.Name = "teTen";
-            this.teTen.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.teTen.Size = new System.Drawing.Size(101, 20);
             this.teTen.TabIndex = 3;
             this.teTen.EditValueChanged += new System.EventHandler(this.teTen_EditValueChanged);
@@ -350,7 +348,6 @@
             this.teHo.Location = new System.Drawing.Point(85, 111);
             this.teHo.MenuManager = this.barManager1;
             this.teHo.Name = "teHo";
-            this.teHo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.teHo.Size = new System.Drawing.Size(139, 20);
             this.teHo.TabIndex = 2;
             this.teHo.TextChanged += new System.EventHandler(this.teHo_TextChanged);
@@ -474,14 +471,21 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGV,
             this.colHO,
             this.colTEN,
             this.colDIACHI,
-            this.colMAKH,
-            this.colMAGV});
+            this.colMAKH});
             this.gridView1.GridControl = this.gcGiangVien;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsEditForm.EditFormColumnCount = 5;
+            // 
+            // colMAGV
+            // 
+            this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.Name = "colMAGV";
+            this.colMAGV.Visible = true;
+            this.colMAGV.VisibleIndex = 0;
             // 
             // colHO
             // 
@@ -513,13 +517,6 @@
             this.colMAKH.Name = "colMAKH";
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 4;
-            // 
-            // colMAGV
-            // 
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
             // 
             // FrmGiangVien
             // 
