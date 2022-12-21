@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tN_CSDLPTDataSet1 = new CSDLPT.TN_CSDLPTDataSet();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -47,8 +46,9 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.teMaGV = new DevExpress.XtraEditors.TextEdit();
-            this.teHo = new DevExpress.XtraEditors.TextEdit();
+            this.teMaMH = new DevExpress.XtraEditors.TextEdit();
+            this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teTen = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,31 +56,31 @@
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcGiangVien = new DevExpress.XtraGrid.GridControl();
-            this.mONHOCBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gIAOVIEN_DANGKYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.giaovienTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.pnGiangVienControl = new System.Windows.Forms.Panel();
-            this.mONHOCTableAdapter1 = new CSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
+            this.pnMonHocControl = new System.Windows.Forms.Panel();
             this.tableAdapterManager1 = new CSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.gIAOVIEN_DANGKYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
+            this.gIAOVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mONHOCTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
+            this.gcMonhoc = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teMaGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teMaMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            this.pnGiangVienControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).BeginInit();
+            this.pnMonHocControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMonhoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // colMAKH
@@ -250,23 +250,30 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 739);
             // 
-            // teMaGV
+            // teMaMH
             // 
-            this.teMaGV.Location = new System.Drawing.Point(136, 73);
-            this.teMaGV.MenuManager = this.barManager1;
-            this.teMaGV.Name = "teMaGV";
-            this.teMaGV.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.teMaGV.Size = new System.Drawing.Size(136, 20);
-            this.teMaGV.TabIndex = 1;
+            this.teMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.mONHOCBindingSource, "MAMH", true));
+            this.teMaMH.Location = new System.Drawing.Point(136, 73);
+            this.teMaMH.MenuManager = this.barManager1;
+            this.teMaMH.Name = "teMaMH";
+            this.teMaMH.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.teMaMH.Size = new System.Drawing.Size(136, 20);
+            this.teMaMH.TabIndex = 1;
             // 
-            // teHo
+            // mONHOCBindingSource
             // 
-            this.teHo.Location = new System.Drawing.Point(133, 111);
-            this.teHo.MenuManager = this.barManager1;
-            this.teHo.Name = "teHo";
-            this.teHo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.teHo.Size = new System.Drawing.Size(139, 20);
-            this.teHo.TabIndex = 2;
+            this.mONHOCBindingSource.DataMember = "MONHOC";
+            this.mONHOCBindingSource.DataSource = this.tN_CSDLPTDataSet1;
+            // 
+            // teTen
+            // 
+            this.teTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.mONHOCBindingSource, "TENMH", true));
+            this.teTen.Location = new System.Drawing.Point(133, 111);
+            this.teTen.MenuManager = this.barManager1;
+            this.teTen.Name = "teTen";
+            this.teTen.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.teTen.Size = new System.Drawing.Size(139, 20);
+            this.teTen.TabIndex = 2;
             // 
             // label6
             // 
@@ -327,33 +334,82 @@
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 0;
             // 
-            // gcGiangVien
+            // pictureBox1
             // 
-            this.gcGiangVien.DataSource = this.gIAOVIEN_DANGKYBindingSource;
-            gridLevelNode1.RelationName = "Level1";
-            this.gcGiangVien.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gcGiangVien.Location = new System.Drawing.Point(490, 24);
-            this.gcGiangVien.MainView = this.gridView2;
-            this.gcGiangVien.MenuManager = this.barManager1;
-            this.gcGiangVien.Name = "gcGiangVien";
-            this.gcGiangVien.Size = new System.Drawing.Size(981, 557);
-            this.gcGiangVien.TabIndex = 45;
-            this.gcGiangVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pictureBox1.Image = global::CSDLPT.Properties.Resources.vecteezy_illustration_vector_graphic_cartoon_character_of_education_6685673;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 243);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(443, 338);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            // 
+            // giaovienTableAdapter
+            // 
+            this.giaovienTableAdapter.ClearBeforeFill = true;
+            // 
+            // pnMonHocControl
+            // 
+            this.pnMonHocControl.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pnMonHocControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnMonHocControl.Controls.Add(this.teMaMH);
+            this.pnMonHocControl.Controls.Add(this.teTen);
+            this.pnMonHocControl.Controls.Add(this.label6);
+            this.pnMonHocControl.Controls.Add(this.label5);
+            this.pnMonHocControl.Controls.Add(this.label1);
+            this.pnMonHocControl.Location = new System.Drawing.Point(12, 30);
+            this.pnMonHocControl.Name = "pnMonHocControl";
+            this.pnMonHocControl.Size = new System.Drawing.Size(443, 197);
+            this.pnMonHocControl.TabIndex = 44;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.BAITHITableAdapter = null;
+            this.tableAdapterManager1.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager1.BODETableAdapter = null;
+            this.tableAdapterManager1.COSOTableAdapter = null;
+            this.tableAdapterManager1.GIAOVIEN_DANGKYTableAdapter = null;
+            this.tableAdapterManager1.GIAOVIENTableAdapter = this.giaovienTableAdapter;
+            this.tableAdapterManager1.KHOATableAdapter = null;
+            this.tableAdapterManager1.LOPTableAdapter = null;
+            this.tableAdapterManager1.MONHOCTableAdapter = null;
+            this.tableAdapterManager1.SINHVIENTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = CSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // gIAOVIEN_DANGKYTableAdapter
+            // 
+            this.gIAOVIEN_DANGKYTableAdapter.ClearBeforeFill = true;
+            // 
+            // gIAOVIENBindingSource
+            // 
+            this.gIAOVIENBindingSource.DataMember = "GIAOVIEN";
+            this.gIAOVIENBindingSource.DataSource = this.tN_CSDLPTDataSet1;
+            // 
+            // mONHOCTableAdapter
+            // 
+            this.mONHOCTableAdapter.ClearBeforeFill = true;
+            // 
+            // gcMonhoc
+            // 
+            this.gcMonhoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcMonhoc.DataSource = this.mONHOCBindingSource;
+            this.gcMonhoc.Location = new System.Drawing.Point(473, 30);
+            this.gcMonhoc.MainView = this.gridView2;
+            this.gcMonhoc.MenuManager = this.barManager1;
+            this.gcMonhoc.Name = "gcMonhoc";
+            this.gcMonhoc.Size = new System.Drawing.Size(986, 541);
+            this.gcMonhoc.TabIndex = 50;
+            this.gcMonhoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            // 
-            // mONHOCBindingSource1
-            // 
-            this.mONHOCBindingSource1.DataMember = "MONHOC";
-            this.mONHOCBindingSource1.DataSource = this.tN_CSDLPTDataSet1;
             // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
-            this.gridView2.GridControl = this.gcGiangVien;
+            this.gridColumn2});
+            this.gridView2.GridControl = this.gcMonhoc;
             this.gridView2.Name = "gridView2";
             // 
             // gridColumn1
@@ -370,71 +426,12 @@
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
-            // gridColumn3
-            // 
-            this.gridColumn3.FieldName = "rowguid";
-            this.gridColumn3.Name = "gridColumn3";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CSDLPT.Properties.Resources.vecteezy_illustration_vector_graphic_cartoon_character_of_education_6685673;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 243);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(443, 338);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
-            // 
-            // giaovienTableAdapter
-            // 
-            this.giaovienTableAdapter.ClearBeforeFill = true;
-            // 
-            // pnGiangVienControl
-            // 
-            this.pnGiangVienControl.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pnGiangVienControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnGiangVienControl.Controls.Add(this.teMaGV);
-            this.pnGiangVienControl.Controls.Add(this.teHo);
-            this.pnGiangVienControl.Controls.Add(this.label6);
-            this.pnGiangVienControl.Controls.Add(this.label5);
-            this.pnGiangVienControl.Controls.Add(this.label1);
-            this.pnGiangVienControl.Location = new System.Drawing.Point(12, 30);
-            this.pnGiangVienControl.Name = "pnGiangVienControl";
-            this.pnGiangVienControl.Size = new System.Drawing.Size(443, 197);
-            this.pnGiangVienControl.TabIndex = 44;
-            // 
-            // mONHOCTableAdapter1
-            // 
-            this.mONHOCTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.BAITHITableAdapter = null;
-            this.tableAdapterManager1.BANGDIEMTableAdapter = null;
-            this.tableAdapterManager1.BODETableAdapter = null;
-            this.tableAdapterManager1.GIAOVIEN_DANGKYTableAdapter = null;
-            this.tableAdapterManager1.GIAOVIENTableAdapter = this.giaovienTableAdapter;
-            this.tableAdapterManager1.LOPTableAdapter = null;
-            this.tableAdapterManager1.MONHOCTableAdapter = this.mONHOCTableAdapter1;
-            this.tableAdapterManager1.SINHVIENTableAdapter = null;
-            this.tableAdapterManager1.UpdateOrder = CSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // gIAOVIEN_DANGKYBindingSource
-            // 
-            this.gIAOVIEN_DANGKYBindingSource.DataMember = "FK_GIAOVIEN_DANGKY_MONHOC1";
-            this.gIAOVIEN_DANGKYBindingSource.DataSource = this.mONHOCBindingSource1;
-            // 
-            // gIAOVIEN_DANGKYTableAdapter
-            // 
-            this.gIAOVIEN_DANGKYTableAdapter.ClearBeforeFill = true;
-            // 
             // FrmMonHoc
             // 
             this.ClientSize = new System.Drawing.Size(1471, 785);
-            this.Controls.Add(this.gcGiangVien);
+            this.Controls.Add(this.gcMonhoc);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pnGiangVienControl);
+            this.Controls.Add(this.pnMonHocControl);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -445,16 +442,17 @@
             this.Load += new System.EventHandler(this.FrmMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teMaGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teMaMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            this.pnGiangVienControl.ResumeLayout(false);
-            this.pnGiangVienControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).EndInit();
+            this.pnMonHocControl.ResumeLayout(false);
+            this.pnMonHocControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMonhoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,12 +488,10 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraGrid.GridControl gcGiangVien;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnGiangVienControl;
-        private DevExpress.XtraEditors.TextEdit teMaGV;
-        private DevExpress.XtraEditors.TextEdit teHo;
+        private System.Windows.Forms.Panel pnMonHocControl;
+        private DevExpress.XtraEditors.TextEdit teMaMH;
+        private DevExpress.XtraEditors.TextEdit teTen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -505,13 +501,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter giaovienTableAdapter;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private System.Windows.Forms.BindingSource mONHOCBindingSource1;
-        private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter mONHOCTableAdapter1;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private System.Windows.Forms.BindingSource gIAOVIEN_DANGKYBindingSource;
         private TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
+        private System.Windows.Forms.BindingSource gIAOVIENBindingSource;
+        private System.Windows.Forms.BindingSource mONHOCBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
+        private DevExpress.XtraGrid.GridControl gcMonhoc;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }
