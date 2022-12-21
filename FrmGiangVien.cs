@@ -49,7 +49,7 @@ namespace CSDLPT
             //this.bdsGiangVien.DataSource = this.getGiaoVienBindingSource2;
             cbCoSo.Enabled = false;
             btnLuu.Enabled = false;
-            btPhucHoi.Enabled = btXoa.Enabled = btHuy.Enabled = false;
+            btPhucHoi.Enabled = btHuy.Enabled = false;
             lbCoSo.Visible = false;
             cbCoSo.Visible = false;
             this.pnGiangVienControl.Enabled = false;
@@ -111,26 +111,19 @@ namespace CSDLPT
             {
                 // viTri = bdsGiangVien.Position;
 
-
+                
                 bdsGiangVien.AddNew();
                 gcGiangVien.Enabled = false;
                 this.pnGiangVienControl.Enabled = true;
-                // teMaGV.Focus();
 
                 flagOption = "ADD";
-                teMaGV.Text = "";
-                teDiaChi.Text = "";
-                teHo.Text = "";
-                teTen.Text = "";
-               
-                
-                cbKhoa.SelectedIndex = 0;
-                
-             
+
                 activeAllButton(false);
                 btnLuu.Enabled = btHuy.Enabled = true;
                 lbCoSo.Visible = true;
                 cbCoSo.Visible = true;
+
+
             }
             catch (Exception ex)
             {
@@ -141,6 +134,7 @@ namespace CSDLPT
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.activeAllButton(true);
             this.Close();
         }
 
@@ -185,6 +179,7 @@ namespace CSDLPT
                     teMaGV.Focus();
                     return;
                 }
+               
 
             }
             if (flagOption == "UPDATE")
@@ -205,6 +200,7 @@ namespace CSDLPT
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi ghi giảng viên! \n" + ex, "Lỗi", MessageBoxButtons.OK);
+                    return;
                 }
 
 
@@ -238,6 +234,14 @@ namespace CSDLPT
                 teTen.Focus();
                 return false;
             }
+
+            if (teMaGV.Text.Length > 8)
+            {
+                MessageBox.Show("Mã giáo viên không được lớn hơn 8 ký tự!");
+                teMaGV.Focus();
+                return false;
+            }
+
             Debug.WriteLine("MAGV: " + teMaGV.Text.Trim() + " Ho: " + teHo.Text.Trim() + " Ten: " + teTen.Text.Trim());
             return true;
         }
@@ -260,15 +264,6 @@ namespace CSDLPT
 
         private void teHo_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                this.tHo = this.teHo.Text;
-                Debug.WriteLine("temp HO: " + this.tHo);
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
 
         private void teTen_Validated(object sender, EventArgs e)
@@ -278,29 +273,10 @@ namespace CSDLPT
 
         private void teTen_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                this.tTen = this.teTen.Text;
-                Debug.WriteLine("temp TEN: " + this.tTen);
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
 
         private void teDiaChi_TextChanged(object sender, EventArgs e)
         {
-
-            try
-            {
-                this.tDiaChi = this.teDiaChi.Text;
-                Debug.WriteLine("temp DIA CHI: " + this.tDiaChi);
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
 
         private void gcGiangVien_Click(object sender, EventArgs e)
@@ -309,6 +285,11 @@ namespace CSDLPT
             {
                 btXoa.Enabled = true;
             }
+        }
+
+        private void gcGiangVien_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
