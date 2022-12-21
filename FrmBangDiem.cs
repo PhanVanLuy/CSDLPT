@@ -35,12 +35,12 @@ namespace CSDLPT
                     Console.WriteLine(cbbLop.SelectedValue.ToString());
                     this.sP_DSMHDKTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_DSMHDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSMHDK, cbbLop.SelectedValue.ToString());
-                    cbbMH.SelectedIndex = 0;
+                    //cbbMH.SelectedIndex = 0;
 
 
                     this.sP_DSLanThiDKTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_DSLanThiDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSLanThiDK, cbbMH.SelectedValue.ToString(), cbbLop.SelectedValue.ToString());
-                    cbbLThi.SelectedIndex = 0;
+                   // cbbLThi.SelectedIndex = 0;
 
                     this.sP_XemKetQuaSVTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_XemKetQuaSVTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_XemKetQuaSV, cbbLop.SelectedValue.ToString(), cbbMH.SelectedValue.ToString(), short.Parse(cbbLThi.SelectedValue.ToString()));
@@ -48,7 +48,9 @@ namespace CSDLPT
 
                 }
             }
-            catch (Exception) { };
+            catch (Exception aaa) {
+                Console.WriteLine("hung"+aaa.ToString());
+            };
         }
 
         private void FrmBangDiem_Load(object sender, EventArgs e)
@@ -161,11 +163,27 @@ namespace CSDLPT
             report.ShowPreviewDialog();
         }
 
+        private void vDSLOP_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            if (vDSLOP.Count <= 0 || sPDSMHDK.Count <= 0 || sPDSLanThiDK.Count <= 0)
+            {
+                MessageBox.Show("Không có thông tin bảng điểm ", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
+            this.sP_XemKetQuaSVTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_XemKetQuaSV, cbbLop.SelectedValue.ToString(), cbbMH.SelectedValue.ToString(), short.Parse(cbbLThi.SelectedValue.ToString()));
+        }
+
         private void cbbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbbCoSo.SelectedValue != null && dem != 0)
             {
-                Program.severname = cbbCoSo.SelectedValue.ToString();
+                Program.servername1 = cbbCoSo.SelectedValue.ToString();
                 if (Program.KetNoiCosoKhac() == 0) return;
                 else
                 {
@@ -193,9 +211,9 @@ namespace CSDLPT
                     else
                     {
                         this.sP_DSMHDKTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.sP_DSMHDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSMHDK, null);
+                        this.sP_DSMHDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSMHDK, cbbLop.SelectedValue.ToString());
                         this.sP_XemKetQuaSVTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.sP_XemKetQuaSVTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_XemKetQuaSV, null, null, null);
+                        this.sP_XemKetQuaSVTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_XemKetQuaSV, cbbLop.SelectedValue.ToString(), cbbMH.SelectedValue.ToString(), short.Parse(cbbLThi.SelectedValue.ToString()));
 
                     }
                 }

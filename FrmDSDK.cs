@@ -40,7 +40,7 @@ namespace CSDLPT
 
         private void FrmDSDK_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            //this.ControlBox = false;
             Program.connstr1 = Program.connstr;
            
             try
@@ -56,7 +56,7 @@ namespace CSDLPT
                 MessageBox.Show("Lỗi load dữ liệu cơ sở" + ex.Message, "", MessageBoxButtons.OK);
             }
 
-            if (Program.mGroup == "Truong")
+            if (Program.mGroup == "TRUONG")
             {
                 cbbPRCoso.Enabled = true;
                 cbbPRCoso.SelectedIndex = 1;

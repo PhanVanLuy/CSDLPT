@@ -65,6 +65,7 @@
             this.sP_DSLanThiDKTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.SP_DSLanThiDKTableAdapter();
             this.sP_XemKetQuaSVTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.SP_XemKetQuaSVTableAdapter();
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnPreview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -173,6 +174,7 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnPreview);
             this.panelControl2.Controls.Add(this.cbbLThi);
             this.panelControl2.Controls.Add(this.cbbMH);
             this.panelControl2.Controls.Add(this.label6);
@@ -302,6 +304,7 @@
             // 
             this.vDSLOP.DataMember = "V_DSLOP";
             this.vDSLOP.DataSource = this.tN_CSDLPTDataSet;
+            this.vDSLOP.CurrentChanged += new System.EventHandler(this.vDSLOP_CurrentChanged);
             // 
             // gridControl1
             // 
@@ -392,6 +395,18 @@
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "MainMenu";
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Location = new System.Drawing.Point(19, 279);
+            this.btnPreview.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(113, 30);
+            this.btnPreview.TabIndex = 28;
+            this.btnPreview.Text = "Xem trước";
+            this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // FrmBangDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,5 +477,6 @@
         private TN_CSDLPTDataSetTableAdapters.SP_XemKetQuaSVTableAdapter sP_XemKetQuaSVTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnInBangDiem;
         private DevExpress.XtraBars.Bar bar1;
+        private System.Windows.Forms.Button btnPreview;
     }
 }
