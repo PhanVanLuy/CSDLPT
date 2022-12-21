@@ -52,7 +52,11 @@ namespace CSDLPT
             btPhucHoi.Enabled = btHuy.Enabled = false;
             lbCoSo.Visible = false;
             cbCoSo.Visible = false;
+          //  cbKhoa.SelectedValue = 0;
+            
+
             this.pnGiangVienControl.Enabled = false;
+           
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -113,6 +117,10 @@ namespace CSDLPT
 
                 
                 bdsGiangVien.AddNew();
+                teDiaChi.Text = "";
+                teHo.Text = "";
+                teMaGV.Text = "";
+                teTen.Text = "";
                 gcGiangVien.Enabled = false;
                 this.pnGiangVienControl.Enabled = true;
 
@@ -259,6 +267,8 @@ namespace CSDLPT
 
         private void teTen_EditValueChanged(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'tN_CSDLPTDataSet1.KHOA' table. You can move, or remove it, as needed.
+            this.kHOATableAdapter.Fill(this.tN_CSDLPTDataSet1.KHOA);
 
         }
 
@@ -292,8 +302,14 @@ namespace CSDLPT
 
         }
 
+        private void cbCoSo_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
         }
 
         private void barButtonItem1_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

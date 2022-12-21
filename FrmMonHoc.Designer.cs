@@ -224,15 +224,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1471, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1384, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 763);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 734);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1471, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1384, 22);
             // 
             // barDockControlLeft
             // 
@@ -240,15 +240,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 739);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 710);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1471, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1384, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 739);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 710);
             // 
             // teMaMH
             // 
@@ -399,7 +399,7 @@
             this.gcMonhoc.MainView = this.gridView2;
             this.gcMonhoc.MenuManager = this.barManager1;
             this.gcMonhoc.Name = "gcMonhoc";
-            this.gcMonhoc.Size = new System.Drawing.Size(986, 541);
+            this.gcMonhoc.Size = new System.Drawing.Size(899, 541);
             this.gcMonhoc.TabIndex = 50;
             this.gcMonhoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -428,7 +428,7 @@
             // 
             // FrmMonHoc
             // 
-            this.ClientSize = new System.Drawing.Size(1471, 785);
+            this.ClientSize = new System.Drawing.Size(1384, 756);
             this.Controls.Add(this.gcMonhoc);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnMonHocControl);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTaoTaiKhoan));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHuy = new System.Windows.Forms.Button();
@@ -47,9 +48,14 @@
             this.txbTenLogin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tN_CSDLPTDataSet = new CSDLPT.TN_CSDLPTDataSet();
+            this.vTenGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.v_TenGVTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.V_TenGVTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vTenGVBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -156,6 +162,8 @@
             // 
             // cbGiangVien
             // 
+            this.cbGiangVien.DataSource = this.vTenGVBindingSource;
+            this.cbGiangVien.DisplayMember = "TenGV";
             this.cbGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGiangVien.FormattingEnabled = true;
             this.cbGiangVien.Location = new System.Drawing.Point(487, 295);
@@ -163,6 +171,7 @@
             this.cbGiangVien.Name = "cbGiangVien";
             this.cbGiangVien.Size = new System.Drawing.Size(193, 21);
             this.cbGiangVien.TabIndex = 4;
+            this.cbGiangVien.ValueMember = "MAGV";
             // 
             // txbXacNhanMK
             // 
@@ -260,6 +269,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // tN_CSDLPTDataSet
+            // 
+            this.tN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
+            this.tN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vTenGVBindingSource
+            // 
+            this.vTenGVBindingSource.DataMember = "V_TenGV";
+            this.vTenGVBindingSource.DataSource = this.tN_CSDLPTDataSet;
+            // 
+            // v_TenGVTableAdapter
+            // 
+            this.v_TenGVTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmTaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +298,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vTenGVBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +324,8 @@
         private System.Windows.Forms.TextBox txbTenLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private TN_CSDLPTDataSet tN_CSDLPTDataSet;
+        private System.Windows.Forms.BindingSource vTenGVBindingSource;
+        private TN_CSDLPTDataSetTableAdapters.V_TenGVTableAdapter v_TenGVTableAdapter;
     }
 }

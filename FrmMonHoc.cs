@@ -59,6 +59,8 @@ namespace CSDLPT
             try
             {
                 mONHOCBindingSource.AddNew();
+                teMaMH.Text = "";
+                teTen.Text = "";
                 flagOption = "ADD";
 
                 teMaMH.Focus();

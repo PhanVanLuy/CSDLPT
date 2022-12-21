@@ -47,7 +47,6 @@
             this.btnSuaGVDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhiGVDK = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhuchoiGVDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -55,37 +54,30 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhuchoiGVDK = new DevExpress.XtraBars.BarButtonItem();
             this.gcDetail = new DevExpress.XtraEditors.PanelControl();
             this.cbbCoSo = new System.Windows.Forms.ComboBox();
             this.cbbTrinhDo = new System.Windows.Forms.ComboBox();
+            this.edtLan = new DevExpress.XtraEditors.TextEdit();
             this.bdsGVDangKy = new System.Windows.Forms.BindingSource(this.components);
             this.tN_CSDLPTDataSet1 = new CSDLPT.TN_CSDLPTDataSet();
-            this.cbbLan = new System.Windows.Forms.ComboBox();
             this.edtTrinhdo = new DevExpress.XtraEditors.TextEdit();
             this.cbbTenGV = new System.Windows.Forms.ComboBox();
             this.vTenGVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tN_CSDLPTDataSet = new CSDLPT.TN_CSDLPTDataSet();
-            this.cbbThoiGian = new System.Windows.Forms.ComboBox();
             this.cbbTenMon = new System.Windows.Forms.ComboBox();
             this.bdsDSMH = new System.Windows.Forms.BindingSource(this.components);
             this.cbbTenLop = new System.Windows.Forms.ComboBox();
             this.bdsDSLop = new System.Windows.Forms.BindingSource(this.components);
             this.edtSoCau = new DevExpress.XtraEditors.SpinEdit();
             this.edtNgayThi = new DevExpress.XtraEditors.DateEdit();
+            this.edtTG = new DevExpress.XtraEditors.TextEdit();
             this.edtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.edtMaMon = new DevExpress.XtraEditors.TextEdit();
             this.edtMaGV = new DevExpress.XtraEditors.TextEdit();
             this.bdsDSGiangVien = new System.Windows.Forms.BindingSource(this.components);
             this.gcGVDK = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTRINHDO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYTHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLAN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOCAUTHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tbGiangVienDK = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.tbDSGiangVien = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter();
             this.tbDSMH = new CSDLPT.TN_CSDLPTDataSetTableAdapters.MONHOCTableAdapter();
@@ -106,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetail)).BeginInit();
             this.gcDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edtLan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGVDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtTrinhdo.Properties)).BeginInit();
@@ -116,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtSoCau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edtTG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaMon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaGV.Properties)).BeginInit();
@@ -260,7 +254,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSuaGVDK),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnHuy),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnGhiGVDK),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhuchoiGVDK),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThoat)});
             this.bar2.Text = "Tools";
             // 
@@ -313,14 +306,6 @@
             this.btnGhiGVDK.Name = "btnGhiGVDK";
             this.btnGhiGVDK.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnGhiGVDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhiGVDK_ItemClick);
-            // 
-            // btnPhuchoiGVDK
-            // 
-            this.btnPhuchoiGVDK.Caption = "Phục Hồi";
-            this.btnPhuchoiGVDK.Enabled = false;
-            this.btnPhuchoiGVDK.Id = 6;
-            this.btnPhuchoiGVDK.Name = "btnPhuchoiGVDK";
-            this.btnPhuchoiGVDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhuchoiGVDK_ItemClick);
             // 
             // btnThoat
             // 
@@ -381,16 +366,23 @@
             this.barButtonItem3.Id = 2;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
+            // btnPhuchoiGVDK
+            // 
+            this.btnPhuchoiGVDK.Caption = "Phục Hồi";
+            this.btnPhuchoiGVDK.Enabled = false;
+            this.btnPhuchoiGVDK.Id = 6;
+            this.btnPhuchoiGVDK.Name = "btnPhuchoiGVDK";
+            this.btnPhuchoiGVDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhuchoiGVDK_ItemClick);
+            // 
             // gcDetail
             // 
             this.gcDetail.AutoSize = true;
             this.gcDetail.Controls.Add(this.cbbCoSo);
             this.gcDetail.Controls.Add(label1);
             this.gcDetail.Controls.Add(this.cbbTrinhDo);
-            this.gcDetail.Controls.Add(this.cbbLan);
+            this.gcDetail.Controls.Add(this.edtLan);
             this.gcDetail.Controls.Add(this.edtTrinhdo);
             this.gcDetail.Controls.Add(this.cbbTenGV);
-            this.gcDetail.Controls.Add(this.cbbThoiGian);
             this.gcDetail.Controls.Add(this.cbbTenMon);
             this.gcDetail.Controls.Add(this.cbbTenLop);
             this.gcDetail.Controls.Add(label3);
@@ -402,15 +394,16 @@
             this.gcDetail.Controls.Add(nGAYTHILabel);
             this.gcDetail.Controls.Add(this.edtNgayThi);
             this.gcDetail.Controls.Add(tRINHDOLabel);
+            this.gcDetail.Controls.Add(this.edtTG);
             this.gcDetail.Controls.Add(this.edtMaLop);
             this.gcDetail.Controls.Add(mAMHLabel);
             this.gcDetail.Controls.Add(this.edtMaMon);
             this.gcDetail.Controls.Add(mAGVLabel);
             this.gcDetail.Controls.Add(this.edtMaGV);
             this.gcDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcDetail.Location = new System.Drawing.Point(0, 314);
+            this.gcDetail.Location = new System.Drawing.Point(0, 311);
             this.gcDetail.Name = "gcDetail";
-            this.gcDetail.Size = new System.Drawing.Size(1384, 180);
+            this.gcDetail.Size = new System.Drawing.Size(1384, 183);
             this.gcDetail.TabIndex = 4;
             // 
             // cbbCoSo
@@ -426,7 +419,6 @@
             // 
             // cbbTrinhDo
             // 
-            this.cbbTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "TRINHDO", true));
             this.cbbTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTrinhDo.FormattingEnabled = true;
             this.cbbTrinhDo.Location = new System.Drawing.Point(120, 112);
@@ -435,6 +427,16 @@
             this.cbbTrinhDo.Size = new System.Drawing.Size(187, 21);
             this.cbbTrinhDo.TabIndex = 51;
             this.cbbTrinhDo.SelectedIndexChanged += new System.EventHandler(this.cbbTrinhDo_SelectedIndexChanged);
+            // 
+            // edtLan
+            // 
+            this.edtLan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "LAN", true));
+            this.edtLan.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsGVDangKy, "LAN", true));
+            this.edtLan.Location = new System.Drawing.Point(120, 158);
+            this.edtLan.Margin = new System.Windows.Forms.Padding(1);
+            this.edtLan.Name = "edtLan";
+            this.edtLan.Size = new System.Drawing.Size(78, 20);
+            this.edtLan.TabIndex = 49;
             // 
             // bdsGVDangKy
             // 
@@ -445,17 +447,6 @@
             // 
             this.tN_CSDLPTDataSet1.DataSetName = "TN_CSDLPTDataSet";
             this.tN_CSDLPTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cbbLan
-            // 
-            this.cbbLan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "LAN", true));
-            this.cbbLan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbLan.FormattingEnabled = true;
-            this.cbbLan.Location = new System.Drawing.Point(120, 154);
-            this.cbbLan.Margin = new System.Windows.Forms.Padding(1);
-            this.cbbLan.Name = "cbbLan";
-            this.cbbLan.Size = new System.Drawing.Size(110, 21);
-            this.cbbLan.TabIndex = 50;
             // 
             // edtTrinhdo
             // 
@@ -470,9 +461,7 @@
             // 
             // cbbTenGV
             // 
-            this.cbbTenGV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "MAGV", true));
             this.cbbTenGV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGVDangKy, "MAGV", true));
-            this.cbbTenGV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bdsGVDangKy, "MAGV", true));
             this.cbbTenGV.DataSource = this.vTenGVBindingSource;
             this.cbbTenGV.DisplayMember = "TenGV";
             this.cbbTenGV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -495,21 +484,8 @@
             this.tN_CSDLPTDataSet.DataSetName = "TN_CSDLPTDataSet";
             this.tN_CSDLPTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cbbThoiGian
-            // 
-            this.cbbThoiGian.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "THOIGIAN", true));
-            this.cbbThoiGian.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbThoiGian.FormattingEnabled = true;
-            this.cbbThoiGian.Location = new System.Drawing.Point(929, 113);
-            this.cbbThoiGian.Margin = new System.Windows.Forms.Padding(1);
-            this.cbbThoiGian.Name = "cbbThoiGian";
-            this.cbbThoiGian.Size = new System.Drawing.Size(104, 21);
-            this.cbbThoiGian.TabIndex = 47;
-            // 
             // cbbTenMon
             // 
-            this.cbbTenMon.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "MAMH", true));
-            this.cbbTenMon.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bdsGVDangKy, "MAMH", true));
             this.cbbTenMon.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGVDangKy, "MAMH", true));
             this.cbbTenMon.DataSource = this.bdsDSMH;
             this.cbbTenMon.DisplayMember = "TENMH";
@@ -530,8 +506,6 @@
             // 
             // cbbTenLop
             // 
-            this.cbbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "MALOP", true));
-            this.cbbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bdsGVDangKy, "MALOP", true));
             this.cbbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGVDangKy, "MALOP", true));
             this.cbbTenLop.DataSource = this.bdsDSLop;
             this.cbbTenLop.DisplayMember = "TENLOP";
@@ -582,6 +556,16 @@
             this.edtNgayThi.Size = new System.Drawing.Size(224, 20);
             this.edtNgayThi.TabIndex = 38;
             // 
+            // edtTG
+            // 
+            this.edtTG.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "THOIGIAN", true));
+            this.edtTG.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsGVDangKy, "THOIGIAN", true));
+            this.edtTG.Location = new System.Drawing.Point(921, 107);
+            this.edtTG.Margin = new System.Windows.Forms.Padding(1);
+            this.edtTG.Name = "edtTG";
+            this.edtTG.Size = new System.Drawing.Size(76, 20);
+            this.edtTG.TabIndex = 35;
+            // 
             // edtMaLop
             // 
             this.edtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGVDangKy, "MALOP", true));
@@ -627,7 +611,7 @@
             this.gcGVDK.Location = new System.Drawing.Point(0, 24);
             this.gcGVDK.MainView = this.gridView1;
             this.gcGVDK.Name = "gcGVDK";
-            this.gcGVDK.Size = new System.Drawing.Size(1384, 290);
+            this.gcGVDK.Size = new System.Drawing.Size(1384, 287);
             this.gcGVDK.TabIndex = 5;
             this.gcGVDK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -635,73 +619,8 @@
             // 
             // gridView1
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAGV,
-            this.colMAMH,
-            this.colMALOP,
-            this.colTRINHDO,
-            this.colNGAYTHI,
-            this.colLAN,
-            this.colSOCAUTHI,
-            this.colTHOIGIAN});
             this.gridView1.GridControl = this.gcGVDK;
             this.gridView1.Name = "gridView1";
-            // 
-            // colMAGV
-            // 
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
-            // 
-            // colMAMH
-            // 
-            this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 1;
-            // 
-            // colMALOP
-            // 
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 2;
-            // 
-            // colTRINHDO
-            // 
-            this.colTRINHDO.FieldName = "TRINHDO";
-            this.colTRINHDO.Name = "colTRINHDO";
-            this.colTRINHDO.Visible = true;
-            this.colTRINHDO.VisibleIndex = 3;
-            // 
-            // colNGAYTHI
-            // 
-            this.colNGAYTHI.FieldName = "NGAYTHI";
-            this.colNGAYTHI.Name = "colNGAYTHI";
-            this.colNGAYTHI.Visible = true;
-            this.colNGAYTHI.VisibleIndex = 4;
-            // 
-            // colLAN
-            // 
-            this.colLAN.FieldName = "LAN";
-            this.colLAN.Name = "colLAN";
-            this.colLAN.Visible = true;
-            this.colLAN.VisibleIndex = 5;
-            // 
-            // colSOCAUTHI
-            // 
-            this.colSOCAUTHI.FieldName = "SOCAUTHI";
-            this.colSOCAUTHI.Name = "colSOCAUTHI";
-            this.colSOCAUTHI.Visible = true;
-            this.colSOCAUTHI.VisibleIndex = 6;
-            // 
-            // colTHOIGIAN
-            // 
-            this.colTHOIGIAN.FieldName = "THOIGIAN";
-            this.colTHOIGIAN.Name = "colTHOIGIAN";
-            this.colTHOIGIAN.Visible = true;
-            this.colTHOIGIAN.VisibleIndex = 7;
             // 
             // tbGiangVienDK
             // 
@@ -758,6 +677,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDetail)).EndInit();
             this.gcDetail.ResumeLayout(false);
             this.gcDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edtLan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGVDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtTrinhdo.Properties)).EndInit();
@@ -768,6 +688,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtSoCau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edtTG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaMon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaGV.Properties)).EndInit();
@@ -804,10 +725,8 @@
         private DevExpress.XtraBars.BarButtonItem btnThoat;
         private System.Windows.Forms.ComboBox cbbCoSo;
         private System.Windows.Forms.ComboBox cbbTrinhDo;
-        private System.Windows.Forms.ComboBox cbbLan;
         private DevExpress.XtraEditors.TextEdit edtTrinhdo;
         private System.Windows.Forms.ComboBox cbbTenGV;
-        private System.Windows.Forms.ComboBox cbbThoiGian;
         private System.Windows.Forms.ComboBox cbbTenMon;
         private System.Windows.Forms.ComboBox cbbTenLop;
         private DevExpress.XtraEditors.SpinEdit edtSoCau;
@@ -824,16 +743,10 @@
         private TN_CSDLPTDataSetTableAdapters.LOPTableAdapter tbDSLopADT;
         private TN_CSDLPTDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
-        private DevExpress.XtraGrid.Columns.GridColumn colTRINHDO;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYTHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colLAN;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOCAUTHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colTHOIGIAN;
         private TN_CSDLPTDataSet tN_CSDLPTDataSet;
         private System.Windows.Forms.BindingSource vTenGVBindingSource;
         private TN_CSDLPTDataSetTableAdapters.V_TenGVTableAdapter v_TenGVTableAdapter;
+        private DevExpress.XtraEditors.TextEdit edtLan;
+        private DevExpress.XtraEditors.TextEdit edtTG;
     }
 }

@@ -58,7 +58,7 @@
             this.tbTaiKhoan.Name = "tbTaiKhoan";
             this.tbTaiKhoan.Size = new System.Drawing.Size(186, 20);
             this.tbTaiKhoan.TabIndex = 0;
-            this.tbTaiKhoan.Text = "PVH";
+            this.tbTaiKhoan.Text = "gv1";
             this.tbTaiKhoan.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnThoat
