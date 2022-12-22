@@ -20,6 +20,8 @@ namespace CSDLPT
 
         private Boolean checkThem = false;
         private Boolean checkSua = false;
+        private Boolean checkAddTD = true;
+        private Boolean checkAddDA = true;
         public static Boolean checkSave = true;
         private int dem = 0;
 
@@ -42,16 +44,16 @@ namespace CSDLPT
             this.v_TenGVTableAdapter.Connection.ConnectionString = Program.connstr;
             this.v_TenGVTableAdapter.Fill(this.tN_CSDLPTDataSet.V_TenGV);
             // TODO: This line of code loads data into the 'tN_CSDLPTDataSet.BODE' table. You can move, or remove it, as needed.
-            this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-            this.bODETableAdapter.Fill(this.tN_CSDLPTDataSet.BODE);
+            //    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+            //  this.bODETableAdapter.Fill(this.tN_CSDLPTDataSet.BODE);
             // TODO: This line of code loads data into the 'tN_CSDLPTDataSet.MONHOC' table. You can move, or remove it, as needed.
-          
-          
-/*
+
+
+
             if (Program.mGroup.Equals("GIANGVIEN"))
             {
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.mONHOCTableAdapter.Fill(this.tN_CSDLPTDataSet.MONHOC);
+                this.mONHOCTableAdapter.FillByMaGV(this.tN_CSDLPTDataSet.MONHOC, Program.username);
                 if (mONHOCBindingSource.Count <= 0)
                 {
                     MessageBox.Show("Giảng viên chưa có môn học đăng ký ", "Thông báo", MessageBoxButtons.OK);
@@ -66,12 +68,13 @@ namespace CSDLPT
                        = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = true;
                     cbbTenMonHocC.SelectedIndex = 0;
                     this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bODETableAdapter.Fill(this.tN_CSDLPTDataSet.BODE);
+                    this.bODETableAdapter.FillByGVandMH(this.tN_CSDLPTDataSet.BODE, Program.username, cbbTenMonHocC.SelectedValue.ToString().Trim());
                 }
 
             }
             else
             {
+
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.mONHOCTableAdapter.Fill(this.tN_CSDLPTDataSet.MONHOC);
                 if (mONHOCBindingSource.Count <= 0)
@@ -87,26 +90,35 @@ namespace CSDLPT
                           = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = true;
                     cbbTenMonHocC.SelectedIndex = 0;
                     this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bODETableAdapter.Fill(this.tN_CSDLPTDataSet.BODE);
+                    this.bODETableAdapter.FillByMaMH(this.tN_CSDLPTDataSet.BODE, cbbTenMonHocC.SelectedValue.ToString().Trim());
                 }
             }
-            */
+
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.tN_CSDLPTDataSet.MONHOC);
 
             gcDetail.Enabled = false;
 
-            cbbTrinhDo.Items.Add("A");
-            cbbTrinhDo.Items.Add("B");
-            cbbTrinhDo.Items.Add("C");
+            if (checkAddTD)
+            {
+                cbbTrinhDo.Items.Add("A");
+                cbbTrinhDo.Items.Add("B");
+                cbbTrinhDo.Items.Add("C");
+                checkAddTD = false;
+            }
             if (bODEBindingSource != null)
                 if (bODEBindingSource.Count > 0)
                     cbbTrinhDo.SelectedValue = ((DataRowView)this.bODEBindingSource.Current).Row["TRINHDO"].ToString();
 
-            cbbDapAn.Items.Add("A");
-            cbbDapAn.Items.Add("B");
-            cbbDapAn.Items.Add("C");
-            cbbDapAn.Items.Add("D");
+            if (checkAddDA)
+            {
+                cbbDapAn.Items.Add("A");
+                cbbDapAn.Items.Add("B");
+                cbbDapAn.Items.Add("C");
+                cbbDapAn.Items.Add("D");
+                checkAddDA = false;
+            }
+
             if (bODEBindingSource != null)
                 if (bODEBindingSource.Count > 0)
                     cbbDapAn.SelectedValue = ((DataRowView)this.bODEBindingSource.Current).Row["DAP_AN"].ToString();
@@ -169,13 +181,13 @@ namespace CSDLPT
         {
             try
             {
-                edtMaGV.Text = "";
+                /*edtMaGV.Text = "";
                 edtMaMon.Text = "";
                 edtMaCauHoi.Text = "";
-
+                */
                 bODEBindingSource.AddNew();
-               // cbbTenMh.SelectedValue = cbbTenMonHocC.SelectedValue.ToString();
-                //edtMaMon.Text = cbbTenMonHocC.SelectedValue.ToString();
+                cbbTenMh.SelectedValue = cbbTenMonHocC.SelectedValue.ToString();
+                edtMaMon.Text = cbbTenMonHocC.SelectedValue.ToString();
 
                 checkThem = true;
                 btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled = false;
@@ -202,7 +214,7 @@ namespace CSDLPT
                     cbbTenGV.SelectedIndex = 0;
                 }
 
-               
+
 
             }
             catch (Exception ex)
@@ -218,7 +230,7 @@ namespace CSDLPT
             {
                 bODEBindingSource.EndEdit();
                 bODEBindingSource.ResetCurrentItem();
-                Console.WriteLine("cocls "+this.bODETableAdapter.Connection.ConnectionString);
+                Console.WriteLine("cocls " + this.bODETableAdapter.Connection.ConnectionString);
                 this.bODETableAdapter.Update(this.tN_CSDLPTDataSet.BODE);
                 btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled = true;
                 gcBoDe.Enabled = true;
@@ -229,7 +241,7 @@ namespace CSDLPT
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi ghi bộ đề thi " + ex.Message, "", MessageBoxButtons.OK);
-                Console.WriteLine( ex);
+                Console.WriteLine(ex);
             }
 
         }
@@ -343,7 +355,7 @@ namespace CSDLPT
             {
                 try
                 {
-                   
+                    this.bODETableAdapter.FillByMaMH(this.tN_CSDLPTDataSet.BODE, cbbTenMonHocC.SelectedValue.ToString().Trim());
                     lbTenMH.Text = cbbTenMonHocC.SelectedValue.ToString().Trim();
 
                 }
@@ -362,7 +374,7 @@ namespace CSDLPT
             }
             else
             {
-                if (Program.mGroup.Equals("Giangvien"))
+                if (Program.mGroup.Equals("GIANGVIEN"))
                 {
                     cbbTenGV.Enabled = false;
                     cbbTenGV.SelectedValue = Program.username;
@@ -370,7 +382,7 @@ namespace CSDLPT
                 else
                 {
                     cbbTenGV.Enabled = true;
-                    cbbTenGV.SelectedValue = ((DataRowView)this.bODEBindingSource.Current).Row["MAGV"].ToString();
+                    //cbbTenGV.SelectedValue = ((DataRowView)this.bODEBindingSource.Current).Row["MAGV"].ToString();
 
                 }
                 checkSua = true;
@@ -388,7 +400,7 @@ namespace CSDLPT
 
         }
 
-         private void cbbTenMh_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbTenMh_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
             {
@@ -412,6 +424,53 @@ namespace CSDLPT
             this.bAITHITableAdapter.Fill(this.tN_CSDLPTDataSet.BAITHI);
             this.v_TenGVTableAdapter.Fill(this.tN_CSDLPTDataSet.V_TenGV);
 
+            if (Program.mGroup.Equals("GIANGVIEN"))
+            {
+                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.mONHOCTableAdapter.FillByMaGV(this.tN_CSDLPTDataSet.MONHOC, Program.username);
+                if (mONHOCBindingSource.Count <= 0)
+                {
+                    MessageBox.Show("Giảng viên chưa có môn học đăng ký ", "Thông báo", MessageBoxButtons.OK);
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    bODEBindingSource = null;
+                    btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled
+                        = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = false;
+                }
+                else
+                {
+                    btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled
+                       = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = true;
+                    cbbTenMonHocC.SelectedIndex = 0;
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.FillByGVandMH(this.tN_CSDLPTDataSet.BODE, Program.username, cbbTenMonHocC.SelectedValue.ToString().Trim());
+                }
+
+            }
+            else
+            {
+
+                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.mONHOCTableAdapter.Fill(this.tN_CSDLPTDataSet.MONHOC);
+                if (mONHOCBindingSource.Count <= 0)
+                {
+                    MessageBox.Show("Danh sách môn học rỗng ", "Thông báo", MessageBoxButtons.OK);
+                    bODEBindingSource = null;
+                    btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled
+                       = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = false;
+                }
+                else
+                {
+                    btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled
+                          = btnGhiBD.Enabled = btnPhucHoiBD.Enabled = true;
+                    cbbTenMonHocC.SelectedIndex = 0;
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.FillByMaMH(this.tN_CSDLPTDataSet.BODE, cbbTenMonHocC.SelectedValue.ToString().Trim());
+                }
+            }
+
+            this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.mONHOCTableAdapter.Fill(this.tN_CSDLPTDataSet.MONHOC);
+
             checkThem = checkSua = false;
             btnThemBD.Enabled = btnSuaBD.Enabled = btnXoaBD.Enabled = true;
             gcBoDe.Enabled = true;
@@ -425,7 +484,12 @@ namespace CSDLPT
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FrmBoDe_Load(  sender,   e);
+            FrmBoDe_Load(sender, e);
+        }
+
+        private void cbbTrinhDo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

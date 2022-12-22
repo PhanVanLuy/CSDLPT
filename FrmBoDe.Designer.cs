@@ -393,6 +393,8 @@
             // 
             // cbbTenMonHocC
             // 
+            this.cbbTenMonHocC.DataSource = this.mONHOCBindingSource;
+            this.cbbTenMonHocC.DisplayMember = "TENMH";
             this.cbbTenMonHocC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTenMonHocC.FormattingEnabled = true;
             this.cbbTenMonHocC.Location = new System.Drawing.Point(66, 5);
@@ -624,6 +626,7 @@
             this.cbbTrinhDo.Name = "cbbTrinhDo";
             this.cbbTrinhDo.Size = new System.Drawing.Size(139, 21);
             this.cbbTrinhDo.TabIndex = 41;
+            this.cbbTrinhDo.SelectedIndexChanged += new System.EventHandler(this.cbbTrinhDo_SelectedIndexChanged);
             // 
             // cbbDapAn
             // 
@@ -654,7 +657,7 @@
             // 
             // cbbTenGV
             // 
-            this.cbbTenGV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bODEBindingSource, "MAGV", true));
+            this.cbbTenGV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vTenGVBindingSource, "MAGV", true));
             this.cbbTenGV.DataSource = this.vTenGVBindingSource;
             this.cbbTenGV.DisplayMember = "TenGV";
             this.cbbTenGV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
