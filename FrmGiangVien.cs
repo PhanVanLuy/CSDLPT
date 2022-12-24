@@ -324,6 +324,7 @@ namespace CSDLPT
                 teMaGV.Enabled = true;
             }
             bdsGiangVien.CancelEdit();
+            giaovienTableAdapter.Fill(this.tN_CSDLPTDataSet1.GIAOVIEN);
             this.pnGiangVienControl.Enabled = false;
             gcGiangVien.Enabled = true;
             activeAllButton(true);

@@ -29,7 +29,7 @@ namespace CSDLPT
 
         public static string SV_THI = "exec SP_BAITHI '{0}','{1}','{2}', {3}";
 
-        public static string GV_THI_THU = "exec SP_BAITHI '{0}','{1}',{2}";
+        public static string GV_THI_THU = "exec [SP_GVThiThu] '{0}','{1}',{2}";
 
 
         

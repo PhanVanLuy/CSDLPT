@@ -27,6 +27,7 @@ namespace CSDLPT
         private float diem = 0;
         private DateTime ngayThi;
         private string maLop = "";
+        private string changingFlag = "";
 
 
         public FrmThi()
@@ -62,6 +63,7 @@ namespace CSDLPT
             if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("Số lượng câu hỏi không đủ, \nKhông thể lấy đề thi", "Thông báo", MessageBoxButtons.OK);
+                btnBatDau.Enabled = false;
                 return;
             }
 
@@ -183,47 +185,23 @@ namespace CSDLPT
         public Boolean loadChiTietLanThi()
         {
             string cmd = "";
-            string maLop = "";
+            string maLop = cbbMaLop.SelectedValue.ToString().Trim();
 
-            if (isSinhVien)
-            {
-                if (cbbTenMon.SelectedValue.ToString().Trim().Equals(""))
-                {
-                    MessageBox.Show("Môn học sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK);
-                    return false;
-                }
-                //if (cbbLanThi.SelectedValue.ToString().Trim().Equals(""))
-                //{
-                //    MessageBox.Show("Lần thi sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK);
-                //    return false;
-                //}
+            //if (isSinhVien)
+            //{
+            //    maLop = edtMaLop.Text;
+            //}
+            //else
+            //{
+            //    maLop = cbbMaLop.SelectedValue.ToString().Trim();
+            //}
 
-                maLop = edtMaLop.Text;
 
-            }
-            else
-            {
-                if (cbbMaLop.SelectedValue.ToString().Trim().Equals(""))
-                {
-                    MessageBox.Show("Mã lớp thi thử rỗng ", "Thông báo", MessageBoxButtons.OK);
-                    return false;
-                }
-                if (cbbTenMon.SelectedValue.ToString().Trim().Equals(""))
-                {
-                    MessageBox.Show("Môn học thi thử rỗng ", "Thông báo", MessageBoxButtons.OK);
-                    return false;
-                }
-                if (bdsLanThi.Count > 0 && cbbLanThi.SelectedValue.ToString().Trim().Equals(""))
-                {
-                    MessageBox.Show("Lần thi thử rỗng ", "Thông báo", MessageBoxButtons.OK);
-                    return false;
-                }
-                maLop = cbbMaLop.SelectedValue.ToString().Trim();
-
-            }
 
             cmd = String.Format(Queries.LAY_THONG_TIN_CHI_TIET_LAN_THI, maLop, cbbTenMon.SelectedValue.ToString(), cbbLanThi.SelectedValue.ToString());
             Debug.WriteLine("Lay thong tin chi tiet lan thi: " + cmd);
+
+            btnBatDau.Enabled = true;
 
             try
             {
@@ -259,6 +237,7 @@ namespace CSDLPT
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kết nối lấy thông tin thi " + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                btnBatDau.Enabled = false;
                 return false;
             }
         }
@@ -301,6 +280,10 @@ namespace CSDLPT
                 if (isSinhVien)
                 {
                     await loadThongTinSV();
+                }
+                else
+                {
+                    loadGiangVien();
                 }
                 
                 this.sP_DSMonHocDaDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSMonHocDaDK, edtMaLop.Text);
@@ -351,16 +334,70 @@ namespace CSDLPT
             }
 
         }
+        private void loadGiangVien()
+        {
+            gbThongTinSV.Text = "Giảng viên thi thử";
+            lbHoTen.Text = "Họ tên giáo viên";
+            edtHoTenSV.Text = Program.mHoten;
+        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(MessageBox.Show("Bạn có chắc chắn muốn thoát? ", "THÔNG BÁO", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
 
 
         private void btnBatDau_Click(object sender, EventArgs e)
         {
-            if (!loadChiTietLanThi()) return;
+            btnThoat.Enabled = false;
+
+            if (isSinhVien)
+            {
+                if (cbbTenMon.SelectedValue.ToString().Trim().Equals(""))
+                {
+                    MessageBox.Show("Môn học sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+                //if (cbbLanThi.SelectedValue.ToString().Trim().Equals(""))
+                //{
+                //    MessageBox.Show("Lần thi sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK);
+                //    return false;
+                //}
+
+                maLop = edtMaLop.Text;
+
+            }
+            else
+            {
+                if (cbbMaLop.SelectedValue.ToString().Trim().Equals(""))
+                {
+                    MessageBox.Show("Mã lớp thi thử rỗng ", "Thông báo", MessageBoxButtons.OK);
+                    btnBatDau.Enabled = false;
+                    return ;
+                }
+                if (cbbTenMon.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Môn học thi thử rỗng ", "Thông báo", MessageBoxButtons.OK);
+                    btnBatDau.Enabled = false;
+                    return ;
+                }
+                if (cbbLanThi.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Không có lần thi nào được đăng ký!!", "Thông báo", MessageBoxButtons.OK);
+                    btnBatDau.Enabled = false;
+                    return ;
+                }
+                maLop = cbbMaLop.SelectedValue.ToString().Trim();
+            }
+
+            //if (!loadChiTietLanThi()) return;
 
             if (!String.IsNullOrEmpty(Program.mSV))
             {
@@ -395,7 +432,10 @@ namespace CSDLPT
         {
             try
             {
+                if(this.changingFlag == "fill")
+                { this.changingFlag = ""; return; }
                 loadChiTietLanThi();
+                
             }
             catch (Exception ex)
             {
@@ -420,9 +460,25 @@ namespace CSDLPT
                     = this.sP_DSMonHocDaDKTableAdapter.Connection.ConnectionString = Program.connstr;
 
                 this.sP_DSMonHocDaDKTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSMonHocDaDK, cbbMaLop.SelectedValue.ToString().Trim());
-                cbbTenMon.SelectedIndex = 0;
+                if(bdsDSMHDaDK.Count > 0)
+                {
+                    cbbTenMon.SelectedIndex = 0;
+                }
 
-                this.sP_DSLanThiTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSLanThi, cbbTenMon.SelectedValue.ToString().Trim(), cbbMaLop.SelectedValue.ToString().Trim());
+                string maMH = "";
+                string maLop = "";
+
+                try
+                {
+                    maMH = cbbTenMon.SelectedValue.ToString().Trim();
+                    maLop = cbbMaLop.SelectedValue.ToString().Trim();
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+
+                this.sP_DSLanThiTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSLanThi, maMH, maLop);
                 cbbLanThi.SelectedIndex = 0;
                 if (bdsDSMHDaDK.Count > 0)
                 {
@@ -432,6 +488,7 @@ namespace CSDLPT
                 {
                     gbThongTinBaiThi.Enabled = false;
                 }
+                loadChiTietLanThi();
             }
             catch (Exception ex)
             {
@@ -463,7 +520,7 @@ namespace CSDLPT
             }
             if (bdsDSMHDaDK.Count > 0)
             {
-                edtMaMon.Text = cbbTenMon.SelectedValue.ToString().Trim();
+                //edtMaMon.Text = cbbTenMon.SelectedValue.ToString().Trim();
 
                 await loadLanThi(cbbTenMon.SelectedValue.ToString().Trim(), cbbMaLop.SelectedValue.ToString().Trim());
                 if (bdsLanThi.Count <= 0)
@@ -474,8 +531,8 @@ namespace CSDLPT
                 }
                 else
                 {
-                    //loadChiTietLanThi();  tu dong thuc thi khi cbbTenMon thay doi -> cbblanThi thay doi theo
                     cbbLanThi.SelectedIndex = 0;
+                    loadChiTietLanThi();
                 }
             }
             else
@@ -501,11 +558,15 @@ namespace CSDLPT
             }
 
             txtThoiGian.Text = "00";
-            cbbLanThi.SelectedText = "";
+            cbbLanThi.Text = "";
             edtTrinhDo.Text = "";
+            edtNgayThi.Text = "";
+            edtSoCau.Text = "";
+            btnBatDau.Enabled = false;
         }
         private async Task loadLanThi(string tenMon, string tenLop)
         {
+            this.changingFlag = "fill";
             this.sP_DSLanThiTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_DSLanThiTableAdapter.Fill(this.tN_CSDLPTDataSet.SP_DSLanThi, tenMon, tenLop);
         }
@@ -520,6 +581,7 @@ namespace CSDLPT
                 ghiDiem();
 
             }
+            btnThoat.Enabled = true;
         }
         private void ghiDiem()
         {

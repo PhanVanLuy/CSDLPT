@@ -60,6 +60,7 @@
             this.cbCoSo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
+            this.kHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbCoSo = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gIAOVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHOATableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.KHOATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).BeginInit();
@@ -88,11 +88,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.teMaGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teHo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -281,6 +281,7 @@
             // 
             this.pnGiangVienControl.AutoScroll = true;
             this.pnGiangVienControl.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pnGiangVienControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnGiangVienControl.Controls.Add(this.teDiaChi);
             this.pnGiangVienControl.Controls.Add(this.teMaGV);
             this.pnGiangVienControl.Controls.Add(this.teTen);
@@ -393,6 +394,11 @@
             this.cbKhoa.ValueMember = "MAKH";
             this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
             // 
+            // kHOABindingSource
+            // 
+            this.kHOABindingSource.DataMember = "KHOA";
+            this.kHOABindingSource.DataSource = this.tN_CSDLPTDataSet1;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -456,7 +462,7 @@
             this.gcGiangVien.MainView = this.gridView1;
             this.gcGiangVien.MenuManager = this.barManager1;
             this.gcGiangVien.Name = "gcGiangVien";
-            this.gcGiangVien.Size = new System.Drawing.Size(894, 682);
+            this.gcGiangVien.Size = new System.Drawing.Size(860, 682);
             this.gcGiangVien.TabIndex = 47;
             this.gcGiangVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -507,11 +513,6 @@
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 4;
             // 
-            // kHOABindingSource
-            // 
-            this.kHOABindingSource.DataMember = "KHOA";
-            this.kHOABindingSource.DataSource = this.tN_CSDLPTDataSet1;
-            // 
             // kHOATableAdapter
             // 
             this.kHOATableAdapter.ClearBeforeFill = true;
@@ -546,11 +547,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.teMaGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teHo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

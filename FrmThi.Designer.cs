@@ -48,6 +48,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.resultlistview = new System.Windows.Forms.ListView();
             this.gbThongTinBaiThi = new System.Windows.Forms.GroupBox();
+            this.cbbTenMon = new System.Windows.Forms.ComboBox();
+            this.bdsDSMHDaDK = new System.Windows.Forms.BindingSource(this.components);
             this.edtNgayThi = new DevExpress.XtraEditors.DateEdit();
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -65,7 +67,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.bdsDSMHDaDK = new System.Windows.Forms.BindingSource(this.components);
             this.edtMaMon = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.scrollCauHoi = new System.Windows.Forms.FlowLayoutPanel();
@@ -96,7 +97,6 @@
             this.sP_DSLopDaDKTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.SP_DSLopDaDKTableAdapter();
             this.bdsCauHoi = new System.Windows.Forms.BindingSource(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cbbTenMon = new System.Windows.Forms.ComboBox();
             this.pnBatdau.SuspendLayout();
             this.gbThongTinSV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsdLop)).BeginInit();
@@ -105,13 +105,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaLop.Properties)).BeginInit();
             this.gbThongTinBaiThi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSMHDaDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSoCau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtTrinhDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLanThi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSMHDaDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaMon.Properties)).BeginInit();
             this.gbCongCu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -145,7 +145,7 @@
             this.btnNopBai.Appearance.Options.UseBackColor = true;
             this.btnNopBai.BackgroundImage = global::CSDLPT.Properties.Resources.download;
             this.btnNopBai.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_enter_32;
-            this.btnNopBai.Location = new System.Drawing.Point(27, 14);
+            this.btnNopBai.Location = new System.Drawing.Point(64, 14);
             this.btnNopBai.Name = "btnNopBai";
             this.btnNopBai.Size = new System.Drawing.Size(130, 39);
             this.btnNopBai.TabIndex = 11;
@@ -265,6 +265,7 @@
             // 
             // edtTenLop
             // 
+            this.edtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsdLop, "TENLOP", true));
             this.edtTenLop.Enabled = false;
             this.edtTenLop.Location = new System.Drawing.Point(306, 25);
             this.edtTenLop.Margin = new System.Windows.Forms.Padding(1);
@@ -376,6 +377,27 @@
             this.gbThongTinBaiThi.TabIndex = 2;
             this.gbThongTinBaiThi.TabStop = false;
             this.gbThongTinBaiThi.Text = "Thông tin bài thi";
+            // 
+            // cbbTenMon
+            // 
+            this.cbbTenMon.DataSource = this.bdsDSMHDaDK;
+            this.cbbTenMon.DisplayMember = "TENMH";
+            this.cbbTenMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTenMon.Font = new System.Drawing.Font("Tahoma", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTenMon.ForeColor = System.Drawing.Color.DarkBlue;
+            this.cbbTenMon.FormattingEnabled = true;
+            this.cbbTenMon.Location = new System.Drawing.Point(93, 24);
+            this.cbbTenMon.Margin = new System.Windows.Forms.Padding(1);
+            this.cbbTenMon.Name = "cbbTenMon";
+            this.cbbTenMon.Size = new System.Drawing.Size(188, 24);
+            this.cbbTenMon.TabIndex = 9;
+            this.cbbTenMon.ValueMember = "MAMH";
+            this.cbbTenMon.SelectedIndexChanged += new System.EventHandler(this.cbbTenMon_SelectedIndexChangedAsync);
+            // 
+            // bdsDSMHDaDK
+            // 
+            this.bdsDSMHDaDK.DataMember = "SP_DSMonHocDaDK";
+            this.bdsDSMHDaDK.DataSource = this.tN_CSDLPTDataSet;
             // 
             // edtNgayThi
             // 
@@ -575,11 +597,6 @@
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Ngày thi";
-            // 
-            // bdsDSMHDaDK
-            // 
-            this.bdsDSMHDaDK.DataMember = "SP_DSMonHocDaDK";
-            this.bdsDSMHDaDK.DataSource = this.tN_CSDLPTDataSet;
             // 
             // edtMaMon
             // 
@@ -820,22 +837,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // cbbTenMon
-            // 
-            this.cbbTenMon.DataSource = this.bdsDSMHDaDK;
-            this.cbbTenMon.DisplayMember = "TENMH";
-            this.cbbTenMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTenMon.Font = new System.Drawing.Font("Tahoma", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTenMon.ForeColor = System.Drawing.Color.DarkBlue;
-            this.cbbTenMon.FormattingEnabled = true;
-            this.cbbTenMon.Location = new System.Drawing.Point(93, 24);
-            this.cbbTenMon.Margin = new System.Windows.Forms.Padding(1);
-            this.cbbTenMon.Name = "cbbTenMon";
-            this.cbbTenMon.Size = new System.Drawing.Size(188, 24);
-            this.cbbTenMon.TabIndex = 9;
-            this.cbbTenMon.ValueMember = "MAMH";
-            this.cbbTenMon.SelectedIndexChanged += new System.EventHandler(this.cbbTenMon_SelectedIndexChangedAsync);
-            // 
             // FrmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,13 +867,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtMaLop.Properties)).EndInit();
             this.gbThongTinBaiThi.ResumeLayout(false);
             this.gbThongTinBaiThi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSMHDaDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSoCau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtTrinhDo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLanThi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSMHDaDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaMon.Properties)).EndInit();
             this.gbCongCu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
