@@ -145,7 +145,7 @@
             this.btnNopBai.Appearance.Options.UseBackColor = true;
             this.btnNopBai.BackgroundImage = global::CSDLPT.Properties.Resources.download;
             this.btnNopBai.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_enter_32;
-            this.btnNopBai.Location = new System.Drawing.Point(64, 14);
+            this.btnNopBai.Location = new System.Drawing.Point(27, 14);
             this.btnNopBai.Name = "btnNopBai";
             this.btnNopBai.Size = new System.Drawing.Size(130, 39);
             this.btnNopBai.TabIndex = 11;

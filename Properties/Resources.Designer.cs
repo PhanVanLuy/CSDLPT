@@ -73,6 +73,16 @@ namespace CSDLPT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5293 {
+            get {
+                object obj = ResourceManager.GetObject("5293", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap b63eccf757d218f5e69b249722b2b73d {
             get {
                 object obj = ResourceManager.GetObject("b63eccf757d218f5e69b249722b2b73d", resourceCulture);
@@ -475,6 +485,16 @@ namespace CSDLPT.Properties {
         internal static System.Drawing.Bitmap icons8_test_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-test-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_unit_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-unit-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -175,5 +175,17 @@ namespace CSDLPT
                 f.Show();
             }
         }
+
+        private void btnKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frmKhoa = this.CheckExists(typeof(FrmKhoa));
+            if (frmKhoa != null) frmKhoa.Activate();
+            else
+            {
+                FrmKhoa f = new FrmKhoa();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

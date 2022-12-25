@@ -104,8 +104,9 @@ namespace CSDLPT
 
                 }
             }
-            if (mONHOCBindingSource.Count == 0) btXoa.Enabled = false;
             activeAllButton(true);
+
+            if (mONHOCBindingSource.Count == 0) btXoa.Enabled = false;
         }
 
         private void btSua_ItemClick(object sender, ItemClickEventArgs e)
