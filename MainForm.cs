@@ -187,5 +187,17 @@ namespace CSDLPT
                 f.Show();
             }
         }
+
+        private void btnTraCuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frmTraCuu = this.CheckExists(typeof(FrmTraCuu));
+            if (frmTraCuu != null) frmTraCuu.Activate();
+            else
+            {
+                FrmTraCuu f = new FrmTraCuu();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
