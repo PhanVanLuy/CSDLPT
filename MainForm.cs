@@ -199,5 +199,10 @@ namespace CSDLPT
                 f.Show();
             }
         }
+
+        private void barButtonItem1_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

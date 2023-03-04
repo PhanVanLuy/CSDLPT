@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnMonhoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnGiangVien = new DevExpress.XtraBars.BarButtonItem();
@@ -54,6 +54,7 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lbGroup = new System.Windows.Forms.Label();
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.tN_CSDLPTDataSet = new CSDLPT.TN_CSDLPTDataSet();
@@ -61,6 +62,7 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).BeginInit();
@@ -81,9 +83,10 @@
             this.btnBangDiem,
             this.barButtonItem2,
             this.btnKhoa,
-            this.btnTraCuu});
+            this.btnTraCuu,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 15;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -260,7 +263,8 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup13});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Cá nhân";
             // 
@@ -269,6 +273,12 @@
             this.ribbonPageGroup4.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_add_key_48;
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_export_48;
+            this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             // 
             // lbGroup
             // 
@@ -299,10 +309,10 @@
             // 
             this.sqlDataSource1.ConnectionName = "TN_CSDLPTConnectionString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery2.Name = "Query";
-            customSqlQuery2.Sql = "select MAMH, TENMH from dbo.MonHoc";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "select MAMH, TENMH from dbo.MonHoc";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery2});
+            customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZ" +
     "T0iTUFNSCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJURU5NSCIgVHlwZT0iU3RyaW5nIiAvP" +
     "jwvVmlldz48L0RhdGFTZXQ+";
@@ -320,6 +330,16 @@
             this.ribbonPageGroup8.ItemLinks.Add(this.btnRpDSDKThi);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Danh sách đăng ký thi";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đăng xuất";
+            this.barButtonItem1.Id = 14;
+            this.barButtonItem1.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_export_48;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_2);
             // 
             // MainForm
             // 
@@ -374,6 +394,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarButtonItem btnTraCuu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 
