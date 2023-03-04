@@ -54,6 +54,16 @@ namespace CSDLPT
 
                             " SELECT  'Return Value' = @return_value ";
 
+        public static string CHECK_TRUNG_KHOA_LOP = "DECLARE @return_value INT " +
+
+                            " EXEC @return_value = [dbo].[SP_CHECK_TRUNG_KHOA_LOP] " +
+
+                            " @type = {0}, @ma = N'{1}' " +
+
+                            " SELECT  'Return Value' = @return_value ";
+
+
+
         public static string THEM_GIANG_VIEN = "insert into GIAOVIEN (MAGV,HO, TEN, DIACHI, MAKH)" +
 
                             " values('{0}', N'{1}', N'{2}', N'{3}', '{4}')";

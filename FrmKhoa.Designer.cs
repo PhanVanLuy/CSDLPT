@@ -32,6 +32,7 @@
             this.teMaKH = new DevExpress.XtraEditors.TextEdit();
             this.kHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tN_CSDLPTDataSet1 = new CSDLPT.TN_CSDLPTDataSet();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btThem = new DevExpress.XtraBars.BarButtonItem();
@@ -56,12 +57,13 @@
             this.giaovienTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.pnKhoaControl = new System.Windows.Forms.Panel();
+            this.cbbCoSo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cOSOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teTen = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cOSOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager1 = new CSDLPT.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
             this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.gIAOVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -75,7 +77,6 @@
             this.kHOATableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.KHOATableAdapter();
             this.cOSOTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.COSOTableAdapter();
             this.gcLop = new DevExpress.XtraGrid.GridControl();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,26 +88,31 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lOPTableAdapter = new CSDLPT.TN_CSDLPTDataSetTableAdapters.LOPTableAdapter();
-            this.cbbCoSo = new System.Windows.Forms.ComboBox();
+            this.fKLOPKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fKGIAOVIENKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbKhoa = new System.Windows.Forms.ComboBox();
+            this.lbKhoa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.teMaKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.pnKhoaControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cOSOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cOSOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.pnLopControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTenLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKLOPKHOABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKGIAOVIENKHOABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // teMaKH
@@ -129,6 +135,11 @@
             // 
             this.tN_CSDLPTDataSet1.DataSetName = "TN_CSDLPTDataSet";
             this.tN_CSDLPTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.tN_CSDLPTDataSet1;
             // 
             // barManager1
             // 
@@ -213,6 +224,7 @@
             this.btnLuu.Id = 6;
             this.btnLuu.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_save_16;
             this.btnLuu.Name = "btnLuu";
+            this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
             // btPhucHoi
             // 
@@ -221,6 +233,7 @@
             this.btPhucHoi.Id = 3;
             this.btPhucHoi.ImageOptions.Image = global::CSDLPT.Properties.Resources.icons8_synchronize_16;
             this.btPhucHoi.Name = "btPhucHoi";
+            this.btPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btPhucHoi_ItemClick);
             // 
             // btThoat
             // 
@@ -339,6 +352,16 @@
             this.pnKhoaControl.Size = new System.Drawing.Size(601, 231);
             this.pnKhoaControl.TabIndex = 52;
             // 
+            // cbbCoSo
+            // 
+            this.cbbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCoSo.FormattingEnabled = true;
+            this.cbbCoSo.Location = new System.Drawing.Point(220, 71);
+            this.cbbCoSo.Name = "cbbCoSo";
+            this.cbbCoSo.Size = new System.Drawing.Size(221, 21);
+            this.cbbCoSo.TabIndex = 32;
+            this.cbbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbbCoSo_SelectedIndexChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -348,11 +371,6 @@
             this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 31;
             this.label2.Text = "Cơ sở:";
-            // 
-            // cOSOBindingSource
-            // 
-            this.cOSOBindingSource.DataMember = "COSO";
-            this.cOSOBindingSource.DataSource = this.tN_CSDLPTDataSet1;
             // 
             // teTen
             // 
@@ -392,6 +410,11 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 25;
             this.label1.Text = "Tên khoa:";
+            // 
+            // cOSOBindingSource
+            // 
+            this.cOSOBindingSource.DataMember = "COSO";
+            this.cOSOBindingSource.DataSource = this.tN_CSDLPTDataSet1;
             // 
             // tableAdapterManager1
             // 
@@ -493,11 +516,7 @@
             this.gcLop.TabIndex = 60;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.tN_CSDLPTDataSet1;
+            this.gcLop.Enter += new System.EventHandler(this.gcLop_Enter);
             // 
             // gridView2
             // 
@@ -533,6 +552,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnLopControl.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pnLopControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnLopControl.Controls.Add(this.cbKhoa);
+            this.pnLopControl.Controls.Add(this.lbKhoa);
             this.pnLopControl.Controls.Add(this.teMaLop);
             this.pnLopControl.Controls.Add(this.teTenLop);
             this.pnLopControl.Controls.Add(this.label4);
@@ -546,10 +567,10 @@
             // teMaLop
             // 
             this.teMaLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "MALOP", true));
-            this.teMaLop.Location = new System.Drawing.Point(247, 95);
+            this.teMaLop.Location = new System.Drawing.Point(245, 100);
             this.teMaLop.Name = "teMaLop";
             this.teMaLop.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.teMaLop.Size = new System.Drawing.Size(136, 20);
+            this.teMaLop.Size = new System.Drawing.Size(206, 20);
             this.teMaLop.TabIndex = 1;
             // 
             // teTenLop
@@ -558,7 +579,7 @@
             this.teTenLop.Location = new System.Drawing.Point(244, 133);
             this.teTenLop.Name = "teTenLop";
             this.teTenLop.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.teTenLop.Size = new System.Drawing.Size(139, 20);
+            this.teTenLop.Size = new System.Drawing.Size(209, 20);
             this.teTenLop.TabIndex = 2;
             // 
             // label4
@@ -575,7 +596,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(169, 98);
+            this.label7.Location = new System.Drawing.Point(169, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 21;
@@ -594,15 +615,36 @@
             // 
             this.lOPTableAdapter.ClearBeforeFill = true;
             // 
-            // cbbCoSo
+            // fKLOPKHOABindingSource
             // 
-            this.cbbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCoSo.FormattingEnabled = true;
-            this.cbbCoSo.Location = new System.Drawing.Point(220, 71);
-            this.cbbCoSo.Name = "cbbCoSo";
-            this.cbbCoSo.Size = new System.Drawing.Size(221, 21);
-            this.cbbCoSo.TabIndex = 32;
-            this.cbbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbbCoSo_SelectedIndexChanged);
+            this.fKLOPKHOABindingSource.DataMember = "FK_LOP_KHOA";
+            this.fKLOPKHOABindingSource.DataSource = this.kHOABindingSource;
+            // 
+            // fKGIAOVIENKHOABindingSource
+            // 
+            this.fKGIAOVIENKHOABindingSource.DataMember = "FK_GIAOVIEN_KHOA";
+            this.fKGIAOVIENKHOABindingSource.DataSource = this.kHOABindingSource;
+            // 
+            // cbKhoa
+            // 
+            this.cbKhoa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lOPBindingSource, "MAKH", true));
+            this.cbKhoa.DataSource = this.kHOABindingSource;
+            this.cbKhoa.DisplayMember = "TENKH";
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.Location = new System.Drawing.Point(244, 68);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(209, 21);
+            this.cbKhoa.TabIndex = 30;
+            this.cbKhoa.ValueMember = "MAKH";
+            // 
+            // lbKhoa
+            // 
+            this.lbKhoa.AutoSize = true;
+            this.lbKhoa.Location = new System.Drawing.Point(169, 71);
+            this.lbKhoa.Name = "lbKhoa";
+            this.lbKhoa.Size = new System.Drawing.Size(35, 13);
+            this.lbKhoa.TabIndex = 31;
+            this.lbKhoa.Text = "Khoa:";
             // 
             // FrmKhoa
             // 
@@ -624,24 +666,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.teMaKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.pnKhoaControl.ResumeLayout(false);
             this.pnKhoaControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cOSOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cOSOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.pnLopControl.ResumeLayout(false);
             this.pnLopControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTenLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKLOPKHOABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKGIAOVIENKHOABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,5 +752,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH2;
         private System.Windows.Forms.ComboBox cbbCoSo;
+        private System.Windows.Forms.BindingSource fKLOPKHOABindingSource;
+        private System.Windows.Forms.BindingSource fKGIAOVIENKHOABindingSource;
+        private System.Windows.Forms.ComboBox cbKhoa;
+        private System.Windows.Forms.Label lbKhoa;
     }
 }
